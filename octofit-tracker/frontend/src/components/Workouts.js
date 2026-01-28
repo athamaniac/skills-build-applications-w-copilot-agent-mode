@@ -70,7 +70,7 @@ function Workouts() {
                     <h6 className="mb-2 fw-bold text-muted text-uppercase" style={{ fontSize: '0.85rem' }}>
                       Suggested Participants
                     </h6>
-                    {workout.suggested_for && workout.suggested_for.length > 0 ? (
+                    {Array.isArray(workout.suggested_for) && workout.suggested_for.length > 0 ? (
                       <div className="d-flex flex-wrap gap-2">
                         {workout.suggested_for.map((participant, idx) => (
                           <span key={idx} className="badge bg-info text-dark">
@@ -87,7 +87,7 @@ function Workouts() {
                 </div>
                 <div className="card-footer bg-light">
                   <small className="text-muted">
-                    👥 <strong>{workout.suggested_for ? workout.suggested_for.length : 0}</strong> participant{workout.suggested_for && workout.suggested_for.length !== 1 ? 's' : ''}
+                    👥 <strong>{Array.isArray(workout.suggested_for) ? workout.suggested_for.length : 0}</strong> participant{Array.isArray(workout.suggested_for) && workout.suggested_for.length !== 1 ? 's' : ''}
                   </small>
                 </div>
               </div>
