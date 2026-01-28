@@ -1,3 +1,4 @@
+import os
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -9,6 +10,10 @@ from .views import (
     LeaderboardViewSet,
     WorkoutViewSet
 )
+
+# Get CODESPACE_NAME from environment variable for HTTPS URLs
+CODESPACE_NAME = os.getenv('CODESPACE_NAME')
+BASE_URL = f'https://{CODESPACE_NAME}-8000.app.github.dev' if CODESPACE_NAME else 'http://localhost:8000'
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
