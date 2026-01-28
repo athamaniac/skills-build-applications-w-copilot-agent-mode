@@ -1,8 +1,4 @@
 from django.core.management.base import BaseCommand
-from django.contrib.auth import get_user_model
-from djongo import models
-## No app models needed for direct MongoDB population
-
 from pymongo import MongoClient
 
 class Command(BaseCommand):
@@ -54,8 +50,8 @@ class Command(BaseCommand):
 
         # Workouts
         workouts = [
-            {"name": "Strength Training", "suggested_for": ["Superman", "Captain America"]},
-            {"name": "Agility Drills", "suggested_for": ["Batman", "Black Widow"]},
+            {"name": "Strength Training", "description": "Build muscle and increase power output", "suggested_for": ["Superman", "Captain America"]},
+            {"name": "Agility Drills", "description": "Improve speed, coordination, and reflexes", "suggested_for": ["Batman", "Black Widow"]},
         ]
         db.workouts.insert_many(workouts)
 
