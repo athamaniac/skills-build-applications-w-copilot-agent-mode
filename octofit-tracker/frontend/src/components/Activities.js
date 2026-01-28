@@ -89,7 +89,7 @@ function Activities() {
           <div className="card-footer bg-light">
             <small className="text-muted">
               Total Activities: <strong>{activities.length}</strong> | 
-              Average Duration: <strong>{(activities.reduce((sum, a) => sum + a.duration, 0) / activities.length).toFixed(1)} min</strong>
+              Average Duration: <strong>{(activities.reduce((sum, a) => sum + (typeof a.duration === 'number' ? a.duration : 0), 0) / activities.length).toFixed(1)} min</strong>
             </small>
           </div>
         </div>

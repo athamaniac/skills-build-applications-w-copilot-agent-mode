@@ -62,7 +62,7 @@ function Leaderboard() {
     );
   }
 
-  const totalPoints = leaderboard.reduce((sum, entry) => sum + entry.points, 0);
+  const totalPoints = leaderboard.reduce((sum, entry) => sum + (typeof entry.points === 'number' ? entry.points : 0), 0);
 
   return (
     <div>

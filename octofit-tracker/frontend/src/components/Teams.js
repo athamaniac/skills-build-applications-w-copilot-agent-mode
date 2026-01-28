@@ -81,7 +81,7 @@ function Teams() {
                 </div>
                 <div className="card-footer bg-light">
                   <small className="text-muted">
-                    Total Members: <strong>{team.members?.length || 0}</strong>
+                    Total Members: <strong>{Array.isArray(team.members) ? team.members.length : 0}</strong>
                   </small>
                 </div>
               </div>
