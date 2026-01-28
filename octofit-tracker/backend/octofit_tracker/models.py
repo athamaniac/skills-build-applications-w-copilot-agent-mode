@@ -42,6 +42,7 @@ class Leaderboard(models.Model):
 class Workout(models.Model):
     """Workout model for octofit_db.workouts collection"""
     name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, default='')
     suggested_for = models.JSONField(default=list, blank=True)
 
     class Meta:

@@ -11,10 +11,6 @@ from .views import (
     WorkoutViewSet
 )
 
-# Get CODESPACE_NAME from environment variable for HTTPS URLs
-CODESPACE_NAME = os.getenv('CODESPACE_NAME')
-BASE_URL = f'https://{CODESPACE_NAME}-8000.app.github.dev' if CODESPACE_NAME else 'http://localhost:8000'
-
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'teams', TeamViewSet, basename='team')
